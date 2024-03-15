@@ -64,4 +64,8 @@ public class FlightController {
         return flightService.readOffers(offerPrice);
     }
 
+    @GetMapping("/offers2")
+    public List<Flight> readOffers2(@RequestParam double offerPrice) {
+        return flightService.readOffers2(offerPrice);
+    }
 }
