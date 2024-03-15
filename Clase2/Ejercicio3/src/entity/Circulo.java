@@ -27,12 +27,12 @@ public class Circulo implements CalculosFormas {
 //  Métodos implementados de la interfaz
     @Override
     public double calcularArea() {
-        return (numPI * Math.pow(radio, 2));
+        return (NUMPI * Math.pow(radio, 2));
     }
 
     @Override
     public double calcularPerimetro() {
-        return (2 * numPI * radio);
+        return (2 * NUMPI * radio);
     }
 
 }
