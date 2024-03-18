@@ -7,7 +7,7 @@ import java.util.List;
 
 @Repository
 public interface FlightRepository extends JpaRepository<Flight, Long> {
-    List<Flight> readByOrigin(String origin);
-    List<Flight> readByOriginAndDestiny(String origin, String destiny);
+    List<Flight> getFlightByOrigin(String origin);
+    List<Flight> getFlightsByLocations(String origin, String destiny);
 
 }

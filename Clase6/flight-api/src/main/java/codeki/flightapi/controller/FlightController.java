@@ -20,19 +20,19 @@ public class FlightController {
 
 
     // ---------------  CRUD METHODS  ----------------
-    @PostMapping("/create")
+    @PostMapping("/add")
     public Flight createFlight(@RequestBody Flight flight) {
         return flightService.createFlight(flight);
     }
 
     @GetMapping("")
-    public List<Flight> readAllFlights() {
-        return flightService.readAllFlights();
+    public List<Flight> getAllFlights() {
+        return flightService.getAllFlights();
     }
 
     @GetMapping("/{id}")
-    public Optional<Flight> readFlightById(@PathVariable("id")  Long id) {
-        return flightService.readFlightById(id);
+    public Optional<Flight> getFlightById(@PathVariable Long id) {
+        return flightService.getFlightById(id);
     }
 
     @PutMapping("/update")
@@ -41,7 +41,7 @@ public class FlightController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public void deleteFlightById(@PathVariable("id") Long id) {
+    public void deleteFlightById(@PathVariable Long id) {
         flightService.deleteFlightById(id);
     }
 
@@ -49,23 +49,23 @@ public class FlightController {
     // ---------------  OTHER METHODS  ---------------
 
     @GetMapping("/origin")
-    public List<Flight> readByOrigin(@RequestParam String origin) {
-        return flightService.readByOrigin(origin);
+    public List<Flight> getFlightByOrigin(@RequestParam String origin) {
+        return flightService.getFlightByOrigin(origin);
     }
 
     @GetMapping("/locations")
-    public List<Flight> readByOriginAndDestiny(@RequestParam String origin, @RequestParam String destiny) {
-        return flightService.readByOriginAndDestiny(origin, destiny);
+    public List<Flight> getFlightsByLocations(@RequestParam String origin, @RequestParam String destiny) {
+        return flightService.getFlightsByLocations(origin, destiny);
     }
 
     @GetMapping("/offers")
-    public List<Flight> readOffers() {
+    public List<Flight> getOffers() {
         int offerPrice = 20000;
-        return flightService.readOffers(offerPrice);
+        return flightService.getOffers(offerPrice);
     }
 
     @GetMapping("/offers2")
-    public List<Flight> readOffers2(@RequestParam double offerPrice) {
-        return flightService.readOffers2(offerPrice);
+    public List<Flight> getOffers2(@RequestParam double offerPrice) {
+        return flightService.getOffers2(offerPrice);
     }
 }

@@ -26,11 +26,11 @@ public class FlightService {
         return flightRepository.save(flight);
     }
 
-    public List<Flight> readAllFlights() {
+    public List<Flight> getAllFlights() {
         return flightRepository.findAll();
     }
 
-    public Optional<Flight> readFlightById(Long id) {
+    public Optional<Flight> getFlightById(Long id) {
         return flightRepository.findById(id);
     }
 
@@ -43,15 +43,15 @@ public class FlightService {
         flightRepository.deleteById(id);
     }
 
-    public List<Flight> readByOrigin(String origin) {
-        return flightRepository.readByOrigin(origin);
+    public List<Flight> getFlightByOrigin(String origin) {
+        return flightRepository.getFlightByOrigin(origin);
     }
 
-    public List<Flight> readByOriginAndDestiny(String origin, String destiny) {
-        return flightRepository.readByOriginAndDestiny(origin, destiny);
+    public List<Flight> getFlightsByLocations(String origin, String destiny) {
+        return flightRepository.getFlightsByLocations(origin, destiny);
     }
 
-    public List<Flight> readOffers(Integer offerPrice) {
+    public List<Flight> getOffers(Integer offerPrice) {
         List<Flight> flights = flightRepository.findAll();
         List<Flight> offersFlight = new ArrayList<>();
 
@@ -63,9 +63,11 @@ public class FlightService {
         return offersFlight;
     }
 
-    public List<Flight> readOffers2(double offerPrice) {
+    public List<Flight> getOffers2(double offerPrice) {
         List<Flight> flights = flightRepository.findAll();
-        return flights.stream().filter(flight -> flight.getPrice() < offerPrice).collect(Collectors.toList());
+        return flights.stream()
+                .filter(flight -> flight.getPrice() < offerPrice)
+                .collect(Collectors.toList());
     }
 
 }
